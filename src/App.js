@@ -1,12 +1,5 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import {
-    BrowserRouter as Router,
-    Routes,
-    Route,
-    Outlet,
-    Navigate,
-} from "react-router-dom";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "@mui/material/styles";
 import defaultTheme from "./Themes/defaultTheme";
 import "./App.css";
