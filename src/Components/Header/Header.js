@@ -30,7 +30,9 @@ const Header = () => {
                                         Ваш город Курган
                                     </div>
                                     <div className="header__info-block-content">
-                                        8 (3522) 662-802
+                                        <a href="tel:8 (3522) 662-802">
+                                            8 (3522) 662-802
+                                        </a>
                                     </div>
                                 </div>
                                 <div className="header__info-block">

@@ -28,6 +28,10 @@
     font-weight: 700;
 }
 
+.header__info-block-content a:hover {
+    text-decoration: underline;
+}
+
 .header__logo {
     width: auto;
     height: 50px;
