@@ -14,7 +14,7 @@ const CartItem = ({ item }) => {
     const dispatch = useDispatch();
 
     const itemOptions = item.options?.map((el) => (
-        <span>
+        <span key={el.name}>
             {el.name}: {el.value}
         </span>
     ));
@@ -58,7 +58,7 @@ const CartItem = ({ item }) => {
                     </div>
                 </div>
             </div>
-            <Divider />
+            <Divider sx={{ mt: "4px" }} />
         </>
     );
 };
