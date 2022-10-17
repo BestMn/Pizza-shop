@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import { Container, Divider, Typography } from "@mui/material";
 import CartItem from "../CartItem/CartItem";
+import EmptyCartPlaceholder from "../EmptyCartPlaceholder/EmptyCartPlaceholder";
 import useCartTotal from "../../Hooks/useCartTotal";
 import "./Cart.css";
 
@@ -12,6 +13,24 @@ const Cart = () => {
     const cartItems = cart.products.map((el) => (
         <CartItem item={el} key={el.id} />
     ));
+
+    if (!cart.products || !cart.products.length) {
+        return (
+            <Container maxWidth="md" sx={{ my: "20px" }}>
+                <Typography
+                    component="h2"
+                    sx={{
+                        fontWeight: 600,
+                        fontSize: 32,
+                    }}
+                >
+                    Корзина
+                </Typography>
+                <Divider sx={{ my: "20px" }} />
+                <EmptyCartPlaceholder />
+            </Container>
+        );
+    }
 
     return (
         <Container maxWidth="md" sx={{ my: "20px" }}>
