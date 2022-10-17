@@ -1,11 +1,10 @@
 import { useDispatch } from "react-redux";
-import { IconButton, Divider } from "@mui/material";
-import AddIcon from "@mui/icons-material/Add";
-import RemoveIcon from "@mui/icons-material/Remove";
+import { Divider, IconButton } from "@mui/material";
+import ClearIcon from "@mui/icons-material/Clear";
 import {
-    clearProductOption,
     addToCart,
     decrementItem,
+    removeFromCart,
 } from "../../store/reducers/reducer";
 import CounterButtons from "../CounterButtons/CounterButtons";
 import "./CartItem.css";
@@ -26,11 +25,14 @@ const CartItem = ({ item }) => {
                 quantity: 1,
             })
         );
-        dispatch(clearProductOption());
     };
 
     const onDelete = () => {
         dispatch(decrementItem(item.id));
+    };
+
+    const onRemove = () => {
+        dispatch(removeFromCart(item.id));
     };
 
     return (
@@ -56,6 +58,9 @@ const CartItem = ({ item }) => {
                     <div className="cart-item__total-amount">
                         {item.quantity * item.price} ₽
                     </div>
+                    <IconButton sx={{ ml: "5px" }} onClick={onRemove}>
+                        <ClearIcon />
+                    </IconButton>
                 </div>
             </div>
             <Divider sx={{ mt: "4px" }} />
