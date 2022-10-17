@@ -1,0 +1,34 @@
+.header__info-container {
+    display: flex;
+    margin-right: 20px;
+}
+
+.header__logo-container,
+.header__info-block {
+    margin-right: 20px;
+}
+
+.header__info-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.header__info-block:last-child {
+    margin-right: 0;
+}
+.header__info-block-title {
+    color: grey;
+    font-weight: 500;
+}
+
+.header__info-block-content {
+    color: black;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.header__logo {
+    width: auto;
+    height: 50px;
+}
