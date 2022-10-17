@@ -1,7 +1,5 @@
 .product-modal__image-container {
     padding: 22px;
-    min-width: 380px;
-    width: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -11,8 +9,6 @@
 .product-modal__info-container {
     flex-grow: 1;
     padding: 22px;
-    min-width: 380px;
-    width: 50%;
     height: 100%;
     display: flex;
     flex-direction: column;

@@ -1,39 +1,22 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import {
-    Fade,
-    Modal,
-    FormControl,
-    Button,
-    Backdrop,
-    Box,
-    Typography,
-    Grid,
-} from "@mui/material";
+import { Dialog, DialogContent, Button, Box, IconButton } from "@mui/material";
+import ClearIcon from "@mui/icons-material/Clear";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { useTheme } from "@mui/material/styles";
 import OptionsButtons from "../OptionsButtons/OptionsButtons";
-import { addToCart, clearProductOption } from "../../store/reducers/reducer";
+import { addToCart } from "../../store/reducers/reducer";
 import "./ProductDetailsModal.css";
 
-const style = {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    flexWrap: "wrap",
-    height: 400,
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-    bgcolor: "background.paper",
-    boxShadow: 24,
-};
-
 const ProductDetailsModal = ({ item, modalOpen, handleClose }) => {
+    const theme = useTheme();
     const dispatch = useDispatch();
 
     const { options, selectedOptions } = useSelector((state) => state.reducer);
 
     const [selectedVariant, setSelectedVariant] = useState(null);
+
+    const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
     const addToCartHandler = () => {
         dispatch(
@@ -66,20 +49,37 @@ const ProductDetailsModal = ({ item, modalOpen, handleClose }) => {
 
     return (
         <div>
-            <Modal
-                aria-labelledby="transition-modal-title"
-                aria-describedby="transition-modal-description"
+            <Dialog
                 open={modalOpen}
                 onClose={handleClose}
-                closeAfterTransition
-                BackdropComponent={Backdrop}
-                BackdropProps={{
-                    timeout: 500,
-                }}
+                fullScreen={fullScreen}
             >
-                <Fade in={modalOpen}>
-                    <Box sx={style}>
+                <DialogContent sx={{ p: 0 }}>
+                    <Box
+                        sx={{
+                            display: "flex",
+                            flexDirection: "column",
+                            m: "auto",
+                            width: "100%",
+                            height: "100%",
+                        }}
+                    >
                         <div className="product-modal__image-container">
+                            <IconButton
+                                onClick={handleClose}
+                                sx={{
+                                    position: "absolute",
+                                    top: "0",
+                                    right: "0",
+                                }}
+                            >
+                                <ClearIcon
+                                    sx={{
+                                        fontSize: 32,
+                                        color: "#000",
+                                    }}
+                                />
+                            </IconButton>
                             <img src={item.img} />
                         </div>
                         <div className="product-modal__info-container">
@@ -114,8 +114,8 @@ const ProductDetailsModal = ({ item, modalOpen, handleClose }) => {
                             </div>
                         </div>
                     </Box>
-                </Fade>
-            </Modal>
+                </DialogContent>
+            </Dialog>
         </div>
     );
 };
