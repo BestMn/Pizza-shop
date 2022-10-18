@@ -165,6 +165,33 @@ const initialState = {
             variants: null,
         },
     ],
+    giftProducts: {
+        points: [1000, 1500, 2500],
+        products: [
+            {
+                id: 29,
+                name: "Филадельфия с Яблоком",
+                img: "https://demo.foodninja.pro/wp-content/uploads/2022/05/33.jpg",
+                description: "Нори, рис, яблоко, лосось, сливочный сыр.",
+                price: 325,
+            },
+            {
+                id: 28,
+                name: "Тортилья с копченым лососем",
+                img: "https://demo.foodninja.pro/wp-content/uploads/2022/05/39.jpg",
+                description: "Сыр, огурец, тортилья, семга х/к, лук зеленый.",
+                price: 319,
+            },
+            {
+                id: 24,
+                name: "Жара",
+                img: "https://demo.foodninja.pro/wp-content/uploads/2022/05/2-cks3zgyus.jpg",
+                description:
+                    "Бостон, Запеченный с огурцом, Цезарь Темпура, Мясник",
+                price: 790,
+            },
+        ],
+    },
     options: [
         { id: 1, name: "Тесто", values: ["Толстое", "Тонкое"] },
         { id: 2, name: "Размер", values: ["Маленькая", "Средняя", "Большая"] },

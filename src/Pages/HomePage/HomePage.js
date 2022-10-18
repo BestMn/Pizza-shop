@@ -3,6 +3,7 @@ import Header from "../../Components/Header/Header";
 import ProductsList from "../../Components/ProductsList/ProductsList";
 import Slider from "../../Components/Slider/Slider";
 import StickyHeader from "../../Components/StickyHeader/StickyHeader";
+import ProgressBar from "../../Components/ProgressBar/ProgressBar";
 
 const HomePage = () => {
     const { categories } = useSelector((state) => state.reducer);
@@ -17,6 +18,7 @@ const HomePage = () => {
             <Slider />
             <StickyHeader />
             {productLists}
+            <ProgressBar />
         </>
     );
 };
