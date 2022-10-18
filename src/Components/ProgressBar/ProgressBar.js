@@ -1,21 +1,15 @@
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { NavLink } from "react-router-dom";
-import {
-    Container,
-    Button,
-    AppBar,
-    Toolbar,
-    Box,
-    Typography,
-    Stack,
-    Divider,
-} from "@mui/material";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { Container } from "@mui/material";
+import ProductGiftModal from "../ProductGiftModal/ProductGiftModal";
 import useCartTotal from "../../Hooks/useCartTotal";
 import "./ProgressBar.css";
 
 const ProgressBar = () => {
     const { giftProducts } = useSelector((state) => state.reducer);
+
+    const [modalOpen, setModalOpen] = useState(false);
+
     const { totalAmount } = useCartTotal();
 
     const maxPoint = Math.max(...giftProducts.points);
@@ -34,13 +28,22 @@ const ProgressBar = () => {
         );
     });
 
+    const handleClose = () => {
+        setModalOpen(false);
+    };
+
     return (
         <div className="progress-bar">
             <Container
                 maxWidth="lg"
                 sx={{ height: "100%", display: "flex", position: "relative" }}
             >
-                <div className="progress-bar__content">Выберите подарок</div>
+                <div
+                    onClick={() => setModalOpen(true)}
+                    className="progress-bar__content"
+                >
+                    Выберите подарок
+                </div>
                 <div className="progress-bar__points-container">
                     <div
                         className="progress-bar__points-bar"
@@ -49,6 +52,11 @@ const ProgressBar = () => {
                     {points}
                 </div>
             </Container>
+            <ProductGiftModal
+                items={giftProducts}
+                handleClose={handleClose}
+                modalOpen={modalOpen}
+            />
         </div>
     );
 };

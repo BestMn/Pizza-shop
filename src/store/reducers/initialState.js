@@ -174,6 +174,7 @@ const initialState = {
                 img: "https://demo.foodninja.pro/wp-content/uploads/2022/05/33.jpg",
                 description: "Нори, рис, яблоко, лосось, сливочный сыр.",
                 price: 325,
+                requiredAmount: 1000,
             },
             {
                 id: 28,
@@ -181,6 +182,7 @@ const initialState = {
                 img: "https://demo.foodninja.pro/wp-content/uploads/2022/05/39.jpg",
                 description: "Сыр, огурец, тортилья, семга х/к, лук зеленый.",
                 price: 319,
+                requiredAmount: 1500,
             },
             {
                 id: 24,
@@ -189,8 +191,10 @@ const initialState = {
                 description:
                     "Бостон, Запеченный с огурцом, Цезарь Темпура, Мясник",
                 price: 790,
+                requiredAmount: 2500,
             },
         ],
+        selectedGift: [],
     },
     options: [
         { id: 1, name: "Тесто", values: ["Толстое", "Тонкое"] },

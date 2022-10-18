@@ -50,6 +50,12 @@ const mainSlice = createSlice({
 
             state.cart.products.splice(productInx, 1);
         },
+        selectGift: (state, action) => {
+            state.giftProducts.selectedGift = action.payload;
+        },
+        removeGift: (state, action) => {
+            state.giftProducts.selectedGift = [];
+        },
     },
 });
 
@@ -59,5 +65,7 @@ export const {
     addToCart,
     decrementItem,
     removeFromCart,
+    selectGift,
+    removeGift,
 } = mainSlice.actions;
 export const { reducer } = mainSlice;
