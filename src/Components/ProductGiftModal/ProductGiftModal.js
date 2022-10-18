@@ -22,22 +22,29 @@ const ProductGiftModal = ({ items, modalOpen, handleClose }) => {
     const { totalAmount } = useCartTotal();
 
     const {
+        giftProducts,
         giftProducts: { selectedGift },
     } = useSelector((state) => state.reducer);
 
     useEffect(() => {
-        if (totalAmount < selectedGift.requiredAmount) {
-            dispatch(removeGift());
+        // FIX THIS \/ \/ \/ \/
+        if (selectedGift) {
+            const currentSelectedGift = giftProducts.products.find(
+                (el) => el.id == selectedGift
+            );
+            if (totalAmount < currentSelectedGift.requiredAmount) {
+                dispatch(removeGift());
+            }
         }
     }, [totalAmount]);
 
     const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
     const onSelectHandler = (item) => {
-        dispatch(selectGift(item));
+        dispatch(selectGift(item.id));
     };
 
-    const giftProducts = items.products.map((el) => (
+    const giftItems = items.products.map((el) => (
         <GiftProduct item={el} key={el.id} onSelectHandler={onSelectHandler} />
     ));
 
@@ -78,7 +85,7 @@ const ProductGiftModal = ({ items, modalOpen, handleClose }) => {
                     </IconButton>
 
                     <Grid container spacing={0}>
-                        {giftProducts}
+                        {giftItems}
                     </Grid>
                 </DialogContent>
             </Dialog>

@@ -1,7 +1,8 @@
 import { useSelector } from "react-redux";
 import { Container, Divider, Typography } from "@mui/material";
-import CartItem from "../CartItem/CartItem";
 import EmptyCartPlaceholder from "../EmptyCartPlaceholder/EmptyCartPlaceholder";
+import CartItem from "../CartItem/CartItem";
+import CartGiftProducts from "../CartGiftProducts/CartGiftProducts";
 import useCartTotal from "../../Hooks/useCartTotal";
 import "./Cart.css";
 
@@ -45,6 +46,7 @@ const Cart = () => {
             </Typography>
             <Divider sx={{ my: "20px" }} />
             {cartItems}
+            <CartGiftProducts />
             <div className="cart__total-amount-wrapper">
                 Итого:{" "}
                 <span className="cart__total-amount">{totalAmount} ₽</span>

@@ -194,7 +194,7 @@ const initialState = {
                 requiredAmount: 2500,
             },
         ],
-        selectedGift: [],
+        selectedGift: null,
     },
     options: [
         { id: 1, name: "Тесто", values: ["Толстое", "Тонкое"] },

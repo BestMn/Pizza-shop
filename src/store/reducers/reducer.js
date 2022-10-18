@@ -54,7 +54,7 @@ const mainSlice = createSlice({
             state.giftProducts.selectedGift = action.payload;
         },
         removeGift: (state, action) => {
-            state.giftProducts.selectedGift = [];
+            state.giftProducts.selectedGift = null;
         },
     },
 });

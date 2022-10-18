@@ -15,7 +15,7 @@ const GiftProduct = ({ item, onSelectHandler }) => {
 
     const { totalAmount } = useCartTotal();
 
-    const selected = selectedGift.id === item.id;
+    const selected = selectedGift == item.id;
 
     const available = totalAmount > item.requiredAmount;
 
