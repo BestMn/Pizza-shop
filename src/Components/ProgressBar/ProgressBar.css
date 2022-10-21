@@ -28,7 +28,6 @@
     bottom: 0;
     right: 0;
     width: 10px;
-    background-color: #ed6c02;
     content: " ";
     z-index: -1;
     width: 1000px;
@@ -46,7 +45,6 @@
     left: 0;
     height: 100%;
     max-width: 100%;
-    background-color: #ed6c02;
     transition: width 1s;
 }
 

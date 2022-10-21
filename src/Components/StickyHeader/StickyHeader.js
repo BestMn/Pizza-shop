@@ -62,7 +62,7 @@ const StickyHeader = () => {
                     <NavLink to="/cart">
                         <Button
                             variant="contained"
-                            color="warning"
+                            color="primary"
                             size="medium"
                             disableElevation
                             sx={{
@@ -76,6 +76,7 @@ const StickyHeader = () => {
                             <Stack
                                 direction="row"
                                 spacing={1}
+                                alignItems="center"
                                 divider={
                                     <Divider orientation="vertical" flexItem />
                                 }

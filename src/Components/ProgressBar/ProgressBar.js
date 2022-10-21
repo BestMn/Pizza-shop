@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { Container } from "@mui/material";
+import { Container, Box } from "@mui/material";
 import ProductGiftModal from "../ProductGiftModal/ProductGiftModal";
 import useCartTotal from "../../Hooks/useCartTotal";
 import "./ProgressBar.css";
@@ -18,13 +18,13 @@ const ProgressBar = () => {
     const points = giftProducts.points.map((el) => {
         const position = (el / maxPoint) * 100;
         return (
-            <div
+            <Box
                 className="progress-bar__point"
-                style={{ left: `${position}%` }}
+                sx={{ left: `${position}%` }}
                 key={el}
             >
-                <div className="progress-bar__point-text">{el} ₽</div>
-            </div>
+                <Box className="progress-bar__point-text">{el} ₽</Box>
+            </Box>
         );
     });
 
@@ -33,31 +33,35 @@ const ProgressBar = () => {
     };
 
     return (
-        <div className="progress-bar">
+        <Box className="progress-bar">
             <Container
                 maxWidth="lg"
                 sx={{ height: "100%", display: "flex", position: "relative" }}
             >
-                <div
+                <Box
+                    sx={{ "&::after": { backgroundColor: "primary.main" } }}
                     onClick={() => setModalOpen(true)}
                     className="progress-bar__content"
                 >
                     Выберите подарок
-                </div>
-                <div className="progress-bar__points-container">
-                    <div
+                </Box>
+                <Box className="progress-bar__points-container">
+                    <Box
                         className="progress-bar__points-bar"
-                        style={{ width: `${barWidth}%` }}
-                    ></div>
+                        sx={{
+                            width: `${barWidth}%`,
+                            backgroundColor: "primary.main",
+                        }}
+                    ></Box>
                     {points}
-                </div>
+                </Box>
             </Container>
             <ProductGiftModal
                 items={giftProducts}
                 handleClose={handleClose}
                 modalOpen={modalOpen}
             />
-        </div>
+        </Box>
     );
 };
 export default ProgressBar;

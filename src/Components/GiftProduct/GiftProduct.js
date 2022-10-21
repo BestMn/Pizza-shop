@@ -1,14 +1,14 @@
 import { useSelector } from "react-redux";
-import { Button, Grid } from "@mui/material";
+import { Button, Grid, Typography } from "@mui/material";
 import useCartTotal from "../../Hooks/useCartTotal";
 import styled from "@emotion/styled";
 import "./GiftProduct.css";
 
-const StyledDiv = styled.div((props) => ({
-    outline: props.selected ? "3px solid #ed6c02" : null,
+const StyledDiv = styled.div(({ selected, theme }) => ({
+    outline: selected ? `3px solid ${theme.palette.primary.main}` : null,
 }));
 
-const GiftProduct = ({ item, onSelectHandler }) => {
+const GiftProduct = ({ item, onSelectHandler, theme }) => {
     const {
         giftProducts: { selectedGift },
     } = useSelector((state) => state.reducer);
@@ -30,9 +30,13 @@ const GiftProduct = ({ item, onSelectHandler }) => {
                         <span className="gift-product__price-old">
                             {item.price} ₽
                         </span>
-                        <span className="gift-product__price-new">
+                        <Typography
+                            component={"span"}
+                            sx={{ color: "primary.main" }}
+                            className="gift-product__price-new"
+                        >
                             Бесплатно
-                        </span>
+                        </Typography>
                     </div>
                     <div className="gift-product__name">{item.name}</div>
                     <div className="gift-product__description-wrapper">
@@ -46,7 +50,7 @@ const GiftProduct = ({ item, onSelectHandler }) => {
                         <Button
                             onClick={() => onSelectHandler(item)}
                             variant="contained"
-                            color="warning"
+                            color="primary"
                             size="large"
                             disableElevation
                             sx={{ borderRadius: "20px", width: "100%" }}
@@ -56,7 +60,7 @@ const GiftProduct = ({ item, onSelectHandler }) => {
                     ) : (
                         <Button
                             variant="outlined"
-                            color="warning"
+                            color="primary"
                             size="large"
                             disabled
                             sx={{ borderRadius: "20px", width: "100%" }}

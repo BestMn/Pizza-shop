@@ -37,7 +37,7 @@ const ProductItem = ({ item }) => {
         <Button
             onClick={() => setModalOpen(true)}
             variant="contained"
-            color="warning"
+            color="primary"
             size="large"
             disableElevation
             sx={{ borderRadius: "20px" }}
@@ -54,7 +54,7 @@ const ProductItem = ({ item }) => {
         <Button
             onClick={addToCartHandler}
             variant="contained"
-            color="warning"
+            color="primary"
             size="large"
             disableElevation
             sx={{ borderRadius: "20px" }}

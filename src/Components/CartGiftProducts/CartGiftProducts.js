@@ -54,9 +54,10 @@ const CartGiftProducts = () => {
                     control={
                         <Radio
                             sx={{
+                                fontSize: "24px",
                                 color: "grey",
                                 "&.Mui-checked": {
-                                    color: "#ed6c02",
+                                    color: "primary.main",
                                 },
                             }}
                         />
@@ -84,13 +85,7 @@ const CartGiftProducts = () => {
 
     return (
         <div className="cart-gift">
-            <Typography
-                component="h3"
-                sx={{
-                    fontWeight: 600,
-                    fontSize: 24,
-                }}
-            >
+            <Typography component="h3" variant={"h3"}>
                 Выберите подарок
             </Typography>
             <FormControl>

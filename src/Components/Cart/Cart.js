@@ -47,10 +47,21 @@ const Cart = () => {
             <Divider sx={{ my: "20px" }} />
             {cartItems}
             <CartGiftProducts />
-            <div className="cart__total-amount-wrapper">
+            <Typography
+                component={"div"}
+                variant="h3"
+                className="cart__total-amount-wrapper"
+            >
                 Итого:{" "}
-                <span className="cart__total-amount">{totalAmount} ₽</span>
-            </div>
+                <Typography
+                    component={"span"}
+                    variant="h3"
+                    sx={{ color: "primary.main" }}
+                    className="cart__total-amount"
+                >
+                    {totalAmount} ₽
+                </Typography>
+            </Typography>
         </Container>
     );
 };
